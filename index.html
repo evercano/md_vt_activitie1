@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Trabajo presentado por: Sebastián Mazo Vélez, Ever Alexander Cano Luján, Juan Pablo Pulido González -->>
+  <title>Dashboard de Créditos con Tooltips</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="scripts.js" defer></script>
+  <style>
+    /* Layout de filtros */
+    #filters {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      padding: 0 20px;
+      margin-bottom: 10px;
+    }
+    #filters label { font-weight: bold; }
+
+    /* Layout del dashboard */
+    #dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 0 20px 20px;
+    }
+    .chart-panel {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Estilos del tooltip */
+    .tooltip {
+      position: absolute;
+      pointer-events: none;
+      padding: 6px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 12px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+    .tooltip4 {
+          position: absolute;
+          background: rgba(0,0,0,0.7);
+          color: #fff;
+          border: 1px solid gray;
+          border-radius: 4px;
+          padding: 8px;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+          font-size: 12px;
+          pointer-events: none; /* Evita interferencias con el mouse */
+          display: none; /* Ocultar por defecto */
+      }
+    .tooltip.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="filters">
+
+    <!-- Div para el tooltip --> 
+    <div id="tooltip4" class="tooltip4"></div>
+
+    <label for="sel-mes">Mes:</label>
+    <select id="sel-mes"></select>
+
+    <label for="sel-depto">Departamento:</label>
+    <select id="sel-depto"></select>
+
+    <label for="sel-tipo">Tipo de crédito:</label>
+    <select id="sel-tipo"></select>
+  </div>
+
+  <div id="dashboard"></div>
+</body>
+</html>
